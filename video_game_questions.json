@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What is the name of the princess that Mario repeatedly tries to rescue?",
+    "options": ["Princess Peach", "Princess Daisy", "Princess Zelda", "Princess Rosalina"],
+    "answer": "Princess Peach",
+    "difficulty": "easy"
+  },
+  {
+    "question": "In what year was the first Call of Duty game released?",
+    "options": ["2001", "2003", "2004", "2005"],
+    "answer": "2003",
+    "difficulty": "medium"
+  },
+  {
+    "question": "Which company developed the video game The Legend of Zelda?",
+    "options": ["Nintendo", "Sony", "Microsoft", "Sega"],
+    "answer": "Nintendo",
+    "difficulty": "easy"
+  },
+  {
+    "question": "What was the first home video game console?",
+    "options": ["Atari 2600", "Magnavox Odyssey", "Nintendo NES", "Sega Genesis"],
+    "answer": "Magnavox Odyssey",
+    "difficulty": "medium"
+  },
+  {
+    "question": "In Minecraft, what ore is green and used to fuel furnaces?",
+    "options": ["Coal ore", "Redstone ore", "Emerald ore", "Diamond ore"],
+    "answer": "Emerald ore",
+    "difficulty": "medium"
+  },
+  {
+    "question": "In which game did Sonic the Hedgehog make his first appearance?",
+    "options": ["Sonic the Hedgehog", "Sonic 2", "Rad Mobile", "Dr. Robotnik's Mean Bean Machine"],
+    "answer": "Rad Mobile",
+    "difficulty": "challenging"
+  },
+  {
+    "question": "What is the best-selling video game of all time as of 2025?",
+    "options": ["Tetris", "Minecraft", "Grand Theft Auto V", "Fortnite"],
+    "answer": "Minecraft",
+    "difficulty": "medium"
+  },
+  {
+    "question": "Which character in Street Fighter is known for the move 'Hadouken'?",
+    "options": ["Ryu", "Ken", "Chun-Li", "Blanka"],
+    "answer": "Ryu",
+    "difficulty": "easy"
+  },
+  {
+    "question": "What console generation is the PlayStation 4 part of?",
+    "options": ["Seventh generation", "Eighth generation", "Ninth generation", "Tenth generation"],
+    "answer": "Eighth generation",
+    "difficulty": "medium"
+  },
+  {
+    "question": "In Final Fantasy VII, what is the name of Sephiroth's iconic sword?",
+    "options": ["Excalibur", "Buster Sword", "Masamune", "Gunblade"],
+    "answer": "Buster Sword",
+    "difficulty": "challenging"
+  }
+]
