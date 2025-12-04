@@ -1,4 +1,5 @@
 // Game state
+let topics = [];
 let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
@@ -19,11 +20,39 @@ const totalQuestions = document.getElementById('total-questions');
 const finalScore = document.getElementById('final-score');
 const maxScore = document.getElementById('max-score');
 const scorePercentage = document.getElementById('score-percentage');
+const topicSelect = document.getElementById('topic-select');
+
+// Load topics manifest
+async function loadTopics() {
+    try {
+        const response = await fetch('questions/topics.json');
+        if (!response.ok) {
+            throw new Error('Failed to load topics');
+        }
+        topics = await response.json();
+        return topics;
+    } catch (error) {
+        console.error('Error loading topics:', error);
+        alert('Failed to load topics. Please make sure questions/topics.json exists.');
+        return [];
+    }
+}
+
+// Populate topic selector dropdown
+function populateTopicSelector() {
+    topicSelect.innerHTML = '';
+    topics.forEach(topic => {
+        const option = document.createElement('option');
+        option.value = topic.file;
+        option.textContent = topic.name;
+        topicSelect.appendChild(option);
+    });
+}
 
 // Load questions from JSON file
-async function loadQuestions() {
+async function loadQuestions(file) {
     try {
-        const response = await fetch('questions.json');
+        const response = await fetch(file);
         if (!response.ok) {
             throw new Error('Failed to load questions');
         }
@@ -31,26 +60,40 @@ async function loadQuestions() {
         return questions;
     } catch (error) {
         console.error('Error loading questions:', error);
-        alert('Failed to load questions. Please make sure questions.json exists.');
+        alert(`Failed to load questions from ${file}.`);
         return [];
     }
 }
 
 // Initialize game
 async function initGame() {
-    questions = await loadQuestions();
-    if (questions.length === 0) {
+    topics = await loadTopics();
+    if (topics.length === 0) {
         return;
     }
-    
-    // Shuffle questions for variety
-    shuffleArray(questions);
+    populateTopicSelector();
     
     currentQuestionIndex = 0;
     score = 0;
     updateScoreDisplay();
-    totalQuestions.textContent = questions.length;
     showScreen('start');
+}
+
+// Start game with selected topic
+async function startGame() {
+    const selectedFile = topicSelect.value;
+    questions = await loadQuestions(selectedFile);
+    if (questions.length === 0) {
+        return;
+    }
+    
+    shuffleArray(questions);
+    currentQuestionIndex = 0;
+    score = 0;
+    updateScoreDisplay();
+    totalQuestions.textContent = questions.length;
+    displayQuestion();
+    showScreen('question');
 }
 
 // Shuffle array function
@@ -163,12 +206,7 @@ function showResults() {
 }
 
 // Event listeners
-startBtn.addEventListener('click', () => {
-    if (questions.length > 0) {
-        displayQuestion();
-        showScreen('question');
-    }
-});
+startBtn.addEventListener('click', startGame);
 
 restartBtn.addEventListener('click', () => {
     initGame();

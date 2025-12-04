@@ -1,0 +1,12 @@
+[
+    {
+        "id": "general",
+        "name": "General Knowledge",
+        "file": "questions.json"
+    },
+    {
+        "id": "tech",
+        "name": "Tech",
+        "file": "questions/tech.json"
+    }
+]
